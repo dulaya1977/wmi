@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-    <title>DocLink System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuiAudit System</title>
     <style>
         body, html {
             margin: 0;
@@ -9,20 +11,28 @@
             height: 100%;
             overflow: hidden; /* 防止出現雙重捲軸 */
         }
+        
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* 關鍵：將 iframe 往上推 24px 類似的效果 */
+            top: -24px; 
+            /* 為了補償往上推的距離，高度需要增加 */
+            height: calc(100% + 24px); 
+        }
+
         iframe {
             width: 100%;
-            height: 100%; /* 設定高一點，確保下方內容不被切 */
+            height: 100%;
             border: none;
-            
-            /* 關鍵魔法：往上推 36px (視警告條高度而定，通常約 30-40px) */
-            /* 這樣會把 Google 的警告條推到視窗外面去 */
-            position: absolute;
-            top: -36px; 
-            height: calc(100% + 36px);
+            display: block;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbyxfgHoHQg-SskxGC5Lf0F9Qf_uCwfh1hx_d1bzK9Uzg-ifSYyf0GNGR5VSsHQZ4XrN/exec"></iframe>
+    <div class="iframe-container">
+        <iframe src="https://script.google.com/macros/s/AKfycbyxfgHoHQg-SskxGC5Lf0F9Qf_uCwfh1hx_d1bzK9Uzg-ifSYyf0GNGR5VSsHQZ4XrN/exec"></iframe>
+    </div>
 </body>
 </html>
